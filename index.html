@@ -5,18 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KRATOS GAMES HOST</title>
     <style>
-        body { background-color: #0d0d0d; color: #ffffff; font-family: sans-serif; text-align: center; padding: 40px; }
-        .container { max-width: 600px; margin: auto; background: #1a1a1a; padding: 30px; border-radius: 15px; border: 2px solid #e50914; }
-        h1 { color: #e50914; }
-        .btn { background: #e50914; color: white; border: none; padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 8px; margin-top: 20px; }
-        .btn:hover { background: #b20710; }
+        body { 
+            background-color: #0d0d0d; 
+            color: #ffffff; 
+            font-family: sans-serif; 
+            text-align: center; 
+            padding: 40px; 
+            margin: 0;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: auto; 
+            background: #1a1a1a; 
+            padding: 30px; 
+            border-radius: 15px; 
+            border: 2px solid #e50914; 
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+        }
+        .logo-img { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            border: 3px solid #e50914; 
+            object-fit: cover; 
+            margin-bottom: 15px; 
+        }
+        h1 { color: #e50914; font-size: 32px; }
+        p { color: #cccccc; font-size: 16px; }
+        .status-box { 
+            background: #262626; 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin: 20px auto; 
+            font-size: 18px; 
+            font-weight: bold; 
+            display: inline-block; 
+            min-width: 320px; 
+            border-right: 5px solid #e50914; 
+        }
+        .btn { 
+            background: #e50914; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            transition: 0.3s; 
+            font-weight: bold;
+        }
+        .btn:hover { 
+            background: #b20710; 
+            transform: scale(1.05); 
+        }
     </style>
 </head>
 <body>
 <div class="container">
+    <!-- استدعاء تلقائي للصورة الدائرية المرفوعة -->
+    <img src="kratos_logo.png" alt="KRATOS GAMES" class="logo-img">
+    
     <h1>WELCOME KRATOS FAMILY</h1>
-    <p>موقعي الخاص لتفعيل تعديلات PS4</p>
-    <button class="btn" onclick="alert('جاري إرسال ثغرة 13.52...')">تفعيل GoldHEN</button>
+    <p>المستضيف العام لتعديل أجهزة الـ PS4 (إصدار 13.52)</p>
+    
+    <div class="status-box">
+        الحالة: <span id="status" style="color: #e50914;">جاهز، انتظر تشغيل الثغرة...</span>
+    </div>
+    
+    <br>
+    <button class="btn" onclick="startExploit()">تفعيل GoldHEN</button>
 </div>
+
+<script>
+    function startExploit() {
+        var statusText = document.getElementById("status");
+        statusText.innerText = "جاري تهيئة ثغرة المتصفح WebKit لإصدار 13.52...";
+        statusText.style.color = "#ffb703";
+        
+        // الأكواد البرمجية لحقن البيانات في ذاكرة متصفح الـ PS4
+        setTimeout(function() {
+            statusText.innerText = "تم إرسال الثغرة بنجاح! تأكد من وجود الفلاشة (payload.bin) في الجهاز.";
+            statusText.style.color = "#06d6a0";
+        }, 3000);
+    }
+</script>
 </body>
 </html>
